@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--ink:#17181b;--muted:#5c5f66;--line:rgba(23,24,27,.12);--accent:#5b77de}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{max-width:none!important;margin:0!important;padding:clamp(6.5rem,12vw,10rem) max(1.4rem,calc((100vw - 980px)/2)) 6rem!important;color:var(--ink)!important;font:400 17px/1.72 Manrope,Arial,sans-serif!important;background:#fff!important;position:relative;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;width:47vw;height:47vw;min-width:360px;min-height:360px;border-radius:50%;filter:blur(78px);opacity:.26;z-index:-1;pointer-events:none}
+body:before{background:var(--accent);top:-22vw;right:-19vw}
+body:after{background:var(--accent-2,#e7b5cc);bottom:-28vw;left:-24vw}
+.page-title{font:800 clamp(2.45rem,7vw,5.4rem)/1.06 Manrope,Arial,sans-serif!important;letter-spacing:-.075em!important;max-width:900px;margin:0!important}
+article{max-width:940px;margin:0 auto}
+header{padding-bottom:1.1rem;border-bottom:0;margin-bottom:1.7rem}
+h1,h2,h3{color:var(--ink)!important;font-family:Manrope,Arial,sans-serif!important;letter-spacing:-.045em!important}
+h2{font-size:clamp(1.65rem,4vw,2.45rem)!important;margin:3.4rem 0 1rem!important}
+h3{font-size:1.25rem!important;margin:2.35rem 0 .75rem!important}
+p{margin:0 0 1.1rem!important;color:var(--muted)}
+strong{color:var(--ink)}
+a{color:inherit!important;text-decoration-color:var(--accent)!important;text-decoration-thickness:2px!important;text-underline-offset:3px}
+img,video{display:block;max-width:100%;height:auto}
+img{border-radius:16px;box-shadow:0 18px 48px rgba(25,30,40,.12)}
+figure{margin:2.25rem 0!important}
+.page-body>:first-child{margin-top:0!important}
+.page-body>:last-child{margin-bottom:0!important}
+.page-body>ul,.page-body>ol{margin:0 0 1.1rem!important;padding-left:1.35rem!important}
+.page-body>li{margin:.35rem 0!important}
+.page-body ul,.page-body ol,.page-body li{color:var(--muted)!important}
+.page-body li::marker{color:var(--muted)!important}
+#3ac0cd2d-9806-80fb-bb3d-e74b60f57802{margin-bottom:0!important}
+#3ac0cd2d-9806-80fb-bb3d-e74b60f57802 strong{font-weight:400!important;color:var(--muted)!important}
+body.theme-tiktok .page-body h3{font-size:clamp(1.65rem,4vw,2.45rem)!important;margin:3.4rem 0 1rem!important}
+body.theme-space .page-body h3{font-size:clamp(1.65rem,4vw,2.45rem)!important;margin:3.4rem 0 1rem!important}
+.image a{display:block}
+.column-list{gap:18px!important;align-items:flex-start}
+.column{overflow:visible!important}
+.column .image img{width:100%}
+.source{border:0!important;background:transparent;padding:0!important}
+.video-wrap{display:flex;justify-content:center;margin:2.25rem 0}
+.video-wrap video{display:block;width:min(100%,460px);max-height:76vh;border-radius:20px;background:transparent;box-shadow:0 22px 54px rgba(25,30,40,.12)}
+.site-nav{position:fixed;inset:1.35rem 1.5rem auto;display:flex;align-items:center;justify-content:space-between;z-index:3;font:500 12px/1 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+.site-nav a{display:inline-flex;padding:.75rem .9rem;text-decoration:none!important;background:rgba(255,255,255,.72);border:1px solid rgba(23,24,27,.1);border-radius:99px;backdrop-filter:blur(12px)}
+.site-nav span{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff}
+body.theme-chevron{--accent:#4c83d5;--accent-2:#a9d7ed}
+body.theme-myclimb{--accent:#54a977;--accent-2:#bde2bd}
+body.theme-tech4med{--accent:#7666c9;--accent-2:#a8d7e1}
+body.theme-incomio{--accent:#e59c48;--accent-2:#f2d59b}
+body.theme-mytale{--accent:#dd82aa;--accent-2:#bea8ea}
+body.theme-space{--accent:#5b5fd1;--accent-2:#ef7e87}
+body.theme-tiktok{--accent:#e9799d;--accent-2:#6fdde1}
+body.theme-design{--accent:#7669dd;--accent-2:#d7a6eb}
+body.case-overview .case-study-cards{margin:2.25rem 0 1.2rem!important}
+body.theme-chevron.case-overview .page-body>p:nth-of-type(2){margin-bottom:0!important}
+body.theme-chevron.case-overview .page-body>p:nth-of-type(3){margin-top:.3rem!important}
+body.page-brain-games .page-body>h2{margin-top:3rem!important}
+body.page-brain-games .page-title,body.page-subscription .page-title,body.page-myclimb-detail .page-title,body.theme-tiktok .page-title,body.theme-mytale .page-title{font-weight:600!important}
+body.page-brain-games .page-body>ul{margin:.55rem 0!important;padding-left:1.35rem!important}
+body.page-brain-games .page-body>ul+ul{margin-top:.35rem!important}
+body.page-brain-games .page-body>figure{margin:1.7rem 0 2.5rem!important}
+body.page-subscription figure,body.page-subscription .image a{display:flex;justify-content:center}
+body.page-subscription figure img{margin-inline:auto}
+body.page-log-a-climb figure,body.page-log-a-climb .image a{display:flex;justify-content:center}
+body.page-log-a-climb figure img{margin-inline:auto}
+body.theme-incomio figure,body.theme-incomio .image a{display:flex;justify-content:center}
+body.theme-incomio figure img{margin-inline:auto}
+body.theme-space figure,body.theme-space .image a{display:flex;justify-content:center}
+body.theme-space figure img{margin-inline:auto}
+body.theme-myclimb .page-header-icon .myclimb-header-icon{display:inline-flex!important;font-size:3rem!important;line-height:1!important}
+.tech4med-title-line{display:block}
+.tech4med-title{font-weight:600!important}
+@media(min-width:701px){.tech4med-title-line{white-space:nowrap}}
+body.theme-tech4med .tech4med-hero,body.theme-tech4med .tech4med-hero a,body.theme-tech4med .tech4med-hero img{background:transparent!important;box-shadow:none!important}
+body.theme-tech4med .shipment-overview-title{margin-top:2.8rem!important}
+body.theme-tech4med .tech4med-section-label{margin-top:3.35rem!important;margin-bottom:0!important}
+body.theme-tech4med .tech4med-solution-block{margin:3.6rem 0!important;padding:clamp(1.25rem,3vw,2rem);border:1px solid color-mix(in srgb,var(--accent) 22%,#fff);border-radius:24px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,#fff),rgba(255,255,255,.76));box-shadow:0 18px 48px rgba(25,30,40,.06)}
+body.theme-tech4med .tech4med-solution-title{margin:0 0 1.35rem!important;color:var(--ink)!important;font:700 clamp(1.3rem,3vw,1.75rem)/1.15 Manrope,Arial,sans-serif!important;letter-spacing:-.04em!important}
+body.theme-tech4med .tech4med-solution-block figure{margin:0!important}
+body.theme-tech4med figure,body.theme-tech4med .image a{display:flex;justify-content:center}
+body.theme-tech4med figure img{margin-inline:auto}
+@media(max-width:700px){body{font-size:17px!important;padding:6.3rem 16px 4.5rem!important}
+header{padding-bottom:1rem;margin-bottom:1.5rem}
+.column-list{display:block!important}
+.column{width:100%!important;margin-bottom:18px}
+.page-title{font-size:clamp(3.5rem,8.8vw,5.2rem)!important;letter-spacing:-.065em!important}
+h2{font-size:clamp(1.8rem,7vw,2.45rem)!important}
+.page-body>h2{margin-top:2.7rem!important}
+.page-body>h3{margin-top:2rem!important}
+.site-nav{inset:1rem 1rem auto;font-size:10px}
+.site-nav a{padding:.7rem .8rem}
+.site-nav span{width:32px;height:32px}
+.video-wrap video{width:100%;border-radius:16px}
+}

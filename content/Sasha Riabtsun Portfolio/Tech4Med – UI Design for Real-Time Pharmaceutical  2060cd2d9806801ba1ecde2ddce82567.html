@@ -1,0 +1,777 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Tech4Med – UI Design for Real-Time Pharmaceutical Logistics</title><meta name="data-notion-page-icon" content="🧪"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%A7%AA%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../../portfolio.css"><script defer src="../../portfolio.js"></script></head><body><article id="2060cd2d-9806-801b-a1ec-de2ddce82567" class="page sans" data-notion-page-icon="🧪"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="🧪"></span></div><h1 class="page-title" dir="auto"><strong>Tech4Med – UI Design for Real-Time Pharmaceutical Logistics</strong></h1><p class="page-description" dir="auto"></p></header><div class="page-body"><figure id="2060cd2d-9806-800b-8b61-dd858bdec24c" class="image" data-notion-image="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/devices.png" dir="ltr"><a href="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/devices.png"><img style="width:3381px" src="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/devices.png"/></a></figure><p id="2060cd2d-9806-807a-a483-e0b2e44a272b" class="" dir="auto">Tech4Med provides real-time visibility into pharma shipments — ensuring sensitive medical cargo arrives safely, on time, and in compliance. I collaborated with a frontend engineer to design both web and mobile interfaces that help logistics teams monitor, configure, and act on sensor data from active shipments.</p><p id="2060cd2d-9806-804b-bb83-c47c2f711285" class="" dir="auto">While I did not have access to users or stakeholders, I worked independently to:</p><ul id="2060cd2d-9806-80c7-98f0-ec084a0eac4c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Design scalable UIs to support temperature tracking, route planning, and alert management.</li></ul><ul id="2060cd2d-9806-8006-a039-e70a3fa61dc1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Create responsive layouts for control rooms (web) and mobile devices used on the ground.</li></ul><ul id="2060cd2d-9806-8080-b65a-c15bb63bd67e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Visualize device data and alerts in a way that supports fast, confident decision-making.</li></ul><p id="2060cd2d-9806-8001-965e-fe064165a42a" class="" dir="auto">
+</p><h2 id="2060cd2d-9806-804a-b4c4-eeeb7ee051b0" class="" dir="auto">My Role</h2><p id="2060cd2d-9806-80a6-a016-c5c9c0e858da" class="" dir="auto">As the sole UI designer on the project, I was responsible for designing both <strong>web and mobile experiences</strong> for Tech4Med. I collaborated closely with frontend engineers to craft responsive, scalable interfaces. My focus was on visual clarity, platform-specific usability, and scalable design patterns to support a complex logistics environment.</p><p id="2060cd2d-9806-80fd-bf64-d1f8af8e902b" class="" dir="auto">
+</p><h2 id="2060cd2d-9806-80b5-926a-e0ea3ccf2f85" class="" dir="auto"><strong>UI Design Challenges</strong></h2><p id="2060cd2d-9806-809e-9c24-dfb76d4dc313" class="" dir="auto">List the core interface problems you tackled. These could include:</p><ul id="2060cd2d-9806-80c7-8a05-caf066ab563d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Designing a clean overview for 1000+ devices without overwhelming the user.</li></ul><ul id="2060cd2d-9806-80e7-93ff-c604ea168377" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Making technical data (e.g., temperature, battery levels) legible at a glance.</li></ul><ul id="2060cd2d-9806-8078-bb9c-e65391d1c0e7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Creating a system of visual alerts with clear severity levels.</li></ul><ul id="2060cd2d-9806-8083-a106-d84a6e9e0f70" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Enabling efficient device filtering and navigation across screens.</li></ul><p id="2060cd2d-9806-800b-b7d5-cdf08283b04b" class="" dir="auto">
+</p><p id="2060cd2d-9806-800e-b6e8-c2e8d1d5ec52" class="" dir="auto"><strong>Shipment Overview &amp; Graphs</strong></p><p id="2060cd2d-9806-80dc-9c92-cfb3e7e78366" class="" dir="auto">Designed detailed telemetry graphs (temperature, humidity, shock) using intuitive charting styles. I prioritized visual continuity and contrast so operators could spot anomalies without needing data analysis expertise.</p><figure id="2060cd2d-9806-8049-9a60-d127e74fcf7f" class="image" data-notion-image="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/alerts-graph-detailed-2.png" dir="ltr"><a href="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/alerts-graph-detailed-2.png"><img style="width:709.9921875px" src="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/alerts-graph-detailed-2.png"/></a></figure><p id="2060cd2d-9806-80c2-a72b-dd6a967e1472" class="" dir="auto">
+</p><p id="2060cd2d-9806-802c-afd3-d14cc338b699" class="" dir="auto"><strong>Shipment Map</strong></p><p id="2060cd2d-9806-80b1-967e-ccec066e288e" class="" dir="auto">A scalable map interface showing active devices grouped by location. To balance clarity and density, I used color-coded status dots and hoverable clusters. A side panel allows fast filtering by alert type or cargo sensitivity.</p><figure id="2060cd2d-9806-80be-947e-d3474031d6e2" class="image" data-notion-image="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/alerts_on_map.png" dir="ltr"><a href="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/alerts_on_map.png"><img style="width:710px" src="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/alerts_on_map.png"/></a></figure><p id="2060cd2d-9806-8067-b6ac-ca8022eb3550" class="" dir="auto">
+</p><p id="2060cd2d-9806-80ba-beae-efaf7111a58b" class="" dir="auto"><strong>Devices Overview</strong></p><p id="2060cd2d-9806-8059-adec-d9b9ee05858c" class="" dir="auto">A clear, scannable list of all active tracking devices used in pharmaceutical shipments. Users can quickly check battery levels, temperature, and last activity, with easy access to scan or download data. Designed for fast decisions in high-volume logistics.</p><figure id="2060cd2d-9806-809e-b040-fbd01a2f6fb4" class="image" data-notion-image="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/devices-1.png" dir="ltr"><a href="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/devices-1.png"><img style="width:709.9921875px" src="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/devices-1.png"/></a></figure><p id="2060cd2d-9806-8077-8f1a-d539d2688cc9" class="" dir="auto">
+</p><p id="2060cd2d-9806-80d9-bf49-d6416c5a0089" class="" dir="auto"><strong>Mobile UIs</strong></p><p id="2060cd2d-9806-80e2-87a9-f5c1a466e86e" class="" dir="auto">The mobile interface provides full control and visibility over sensitive shipments. Users can create new shipments, define alert thresholds, and manage origin details. Once in transit, shipments are tracked in real-time, with access to detailed sensor data (temperature, humidity, battery) and a visual journey map. Devices can be monitored via a global map or list view, and individual device data is accessible for deep-dive diagnostics. </p><p id="2060cd2d-9806-8041-8ba5-db8baaa9fecf" class="" dir="auto">
+</p><div id="2060cd2d-9806-80a4-88d3-fbb19bdfec82" class="column-list" data-notion-column-list="" dir="auto"><div id="2060cd2d-9806-80ac-aa75-e6c4066d43ec" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="2060cd2d-9806-8024-aebc-c63d6fbdc204" class="image" style="text-align:left" data-notion-image="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/1.png" dir="ltr"><a href="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/1.png"><img style="width:288px" src="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/1.png"/></a></figure></div><div id="2060cd2d-9806-80e3-bd2f-f6a7d166ac74" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="2060cd2d-9806-80f3-8956-d45617c9a2a7" class="image" style="text-align:left" data-notion-image="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/2.png" dir="ltr"><a href="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/2.png"><img style="width:288px" src="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/2.png"/></a></figure></div></div><div id="2060cd2d-9806-8026-a7fc-cca680083a2a" class="column-list" data-notion-column-list="" dir="auto"><div id="2060cd2d-9806-800a-a7bb-c52f6a8ee3d3" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="2060cd2d-9806-8060-977f-dae608e465a6" class="image" style="text-align:left" data-notion-image="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/3.png" dir="ltr"><a href="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/3.png"><img style="width:288px" src="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/3.png"/></a></figure></div><div id="2060cd2d-9806-806a-ba0c-f1435821e25a" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="2060cd2d-9806-808d-85ac-e136db85051d" class="image" style="text-align:left" data-notion-image="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/4.png" dir="ltr"><a href="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/4.png"><img style="width:288px" src="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/4.png"/></a></figure></div></div><div id="2060cd2d-9806-8013-af3f-e1804331a24c" class="column-list" data-notion-column-list="" dir="auto"><div id="2060cd2d-9806-8026-ad27-e8b3a3d0a6cb" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="2060cd2d-9806-80b2-8450-c9415ad1870d" class="image" style="text-align:left" data-notion-image="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/5.png" dir="ltr"><a href="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/5.png"><img style="width:288px" src="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/5.png"/></a></figure></div><div id="2060cd2d-9806-80be-88d2-f4a1f068da51" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="2060cd2d-9806-8062-8768-ee6d80d33c98" class="image" style="text-align:left" data-notion-image="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/6.png" dir="ltr"><a href="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/6.png"><img style="width:288px" src="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/6.png"/></a></figure></div></div><p id="2060cd2d-9806-8031-a6f6-ecd6fabaef7a" class="" dir="auto">
+</p><h2 id="2060cd2d-9806-802e-a4a8-cb912754fed8" class="" dir="auto"><strong>Design Process</strong></h2><p id="2060cd2d-9806-8028-a551-dc205fc0294a" class="" dir="auto">I worked closely with the frontend engineers to ensure feasibility, minimize development time, and build reusable components. I made interface decisions based on:</p><ul id="2060cd2d-9806-8029-adbc-f9b312a70753" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Industry UI patterns in logistics platforms.</li></ul><ul id="2060cd2d-9806-807e-b812-c4760e47f704" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Principles of visual hierarchy and cognitive load.</li></ul><ul id="2060cd2d-9806-8029-9ff5-c5be1de40557" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Hardware constraints (e.g., what data was available from devices).</li></ul><ul id="2060cd2d-9806-80bf-a6c3-fc7813a6089b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Feedback from internal reviews.</li></ul><p id="2ed0cd2d-9806-808d-82b9-c4ba5e667ba9" class="" dir="auto">
+</p><h2 id="2ed0cd2d-9806-801e-8c02-f9863949aaac" class="" dir="auto">Future Improvements </h2><p id="2ed0cd2d-9806-8025-bf10-ef28974a6a9f" class="" dir="auto">This section outlines potential enhancements identified through usability findings and stakeholder feedback.</p><ul id="2ed0cd2d-9806-80ff-9b7d-cf1e706e9604" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Navigation:</strong> Improved structure to provide instant clarity on where the user is within the experience.</li></ul><ul id="2ed0cd2d-9806-8097-9f40-f8df7b7b83dc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Filters:</strong> Enhanced filtering to make parameter selection easier and ensure selected filters are always visible.</li></ul><ul id="2ed0cd2d-9806-8089-89a3-daae5f87be0d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Table grid:</strong> Long text strings split into separate columns to improve readability and support faster information scanning.</li></ul><p id="2ed0cd2d-9806-80b3-b2d1-d740510c0189" class="" dir="auto"><strong>Existing version</strong></p><figure id="2ed0cd2d-9806-805b-81c9-ef5570434962" class="image" data-notion-image="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/1%201.png" dir="ltr"><a href="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/1%201.png"><img style="width:2880px" src="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/1%201.png"/></a></figure><p id="2ed0cd2d-9806-80f5-a309-ccd76585341a" class="" dir="auto">
+</p><p id="2ed0cd2d-9806-8077-ba28-cb47cd0dbaa1" class="" dir="auto"><strong>Improved version</strong></p><figure id="2ed0cd2d-9806-800b-983f-cec72b7f59f0" class="image" data-notion-image="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/2%201.png" dir="ltr"><a href="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/2%201.png"><img style="width:2880px" src="Tech4Med%20%E2%80%93%20UI%20Design%20for%20Real-Time%20Pharmaceutical%20/2%201.png"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span><div class="site-nav"><a href="../../index.html">← All projects</a><span>SR</span></div></body></html>
