@@ -7,6 +7,11 @@ nav a{color:inherit}
 .monogram{display:grid;place-items:center;width:126px;height:126px;border:1px solid rgba(23,24,27,.16);border-radius:18px;background:#0e4ed8 url('assets/portfolio-cover.png') center/contain no-repeat;color:transparent;text-decoration:none;letter-spacing:0;font-size:0}
 .nav-links{display:flex;gap:22px;padding-top:14px}
 .nav-links a{text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+.email-actions{display:flex;align-items:flex-start;gap:7px}
+.copy-email{display:grid;place-items:center;appearance:none;border:0;background:none;color:inherit;padding:0;line-height:1;cursor:pointer}
+.copy-email svg{width:13px;height:13px;fill:currentColor}
+.copy-email.is-copied{color:#16803c}
+.copy-email:focus-visible,.nav-links a:focus-visible{outline:2px solid #0e4ed8;outline-offset:4px}
 header{padding:2.75rem 0 6vh}
 .eyebrow,.section-line{font:500 12px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
 .eyebrow{margin:0 0 24px;color:#5d6065}
@@ -57,9 +62,10 @@ h1{font:600 clamp(3.5rem,8.8vw,8.3rem)/.91 Manrope,Arial,sans-serif;letter-spaci
 .lilac{--card-bg:#e8e0f6}
 footer{margin:110px auto 32px;padding-top:16px;border-top:1px solid #d8d9dc;display:flex;justify-content:space-between;color:#60636a;font:500 11px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase}
 @media(max-width:700px){main,footer{width:min(100% - 32px,1240px)}
-nav{align-items:center;padding-top:20px}
+nav{flex-direction:column;align-items:flex-start;padding-top:20px}
 .monogram{width:96px;height:96px;border-radius:15px}
-.nav-links{flex-direction:column;gap:9px;padding-top:0;text-align:right;font-size:10px}
+.nav-links{align-items:flex-start;flex-direction:column;gap:9px;margin-top:18px;padding-top:0;text-align:left;font-size:10px}
+.email-actions{justify-content:flex-start;gap:6px}
 header{padding:2rem 0 5vh}
 .grid{grid-template-columns:1fr}
 .card,.card.wide{grid-column:auto;min-height:360px}

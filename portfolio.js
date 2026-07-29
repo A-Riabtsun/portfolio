@@ -82,8 +82,8 @@
       {match:'subscription feature',title:'Subscription',label:'Loyalty feature',image:'../../assets/chevron-subscription.png'}
     ]},
     {key:'myclimb',title:'MyClimb',entries:[
-      {match:'advanced analytics',title:'Analytics',label:'Progress insights',image:'../../assets/myclimb-analytics-grey.png'},
-      {match:'log a climb redesign',title:'Log a Climb',label:'Core experience',image:'../../assets/myclimb-log.png'}
+      {match:'log a climb redesign',title:'Log a Climb',label:'Core experience',image:'../../assets/myclimb-log.png'},
+      {match:'advanced analytics',title:'Analytics',label:'Progress insights',image:'../../assets/myclimb-analytics-grey.png'}
     ]}
   ].find(config=>document.title.includes(config.title));
   if(!cardConfig)return;
